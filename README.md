@@ -29,8 +29,8 @@ A responsive Task Management Dashboard created with ReactJS. It allows users to 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd reactjs-technical-round-1
+git clone https://github.com/navaneetcs27-debug/task-management-dashboard.git
+cd task-management-dashboard
 ```
 
 2. Install dependencies:
@@ -49,7 +49,7 @@ npm run build
 ```
 
 ## Live Demo
-Live application link: https://reactjs-technical-round-1.vercel.app
+Live application: https://navaneetcs27-debug.github.io/task-management-dashboard/
 
 ## Technical Approach & Architecture
 
@@ -65,6 +65,5 @@ Live application link: https://reactjs-technical-round-1.vercel.app
 - **Scalability**: For large datasets, server-side pagination, debounced search (`useDeferredValue`), and virtualized lists (e.g. `react-window`) can be integrated.
 
 ## Candidate Details
-- **Name**: Candidate Name
-- **Email**: candidate@example.com
-- **GitHub**: https://github.com/<your-username>/reactjs-technical-round-1
+- **GitHub**: https://github.com/navaneetcs27-debug/task-management-dashboard
+- **Live Deployment**: https://navaneetcs27-debug.github.io/task-management-dashboard/
