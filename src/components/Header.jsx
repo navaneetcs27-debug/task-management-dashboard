@@ -1,60 +1,51 @@
 import React from 'react';
-import { 
-  CheckSquare, 
-  Plus, 
-  Sun, 
-  Moon, 
-  RotateCcw,
-  Sparkles
-} from 'lucide-react';
+import { CheckSquare, Plus, Sun, Moon, RotateCcw } from 'lucide-react';
 
-export const Header = ({ 
-  theme, 
-  onToggleTheme, 
-  onOpenAddModal, 
-  onResetData 
+export const Header = ({
+  theme,
+  onToggleTheme,
+  onOpenAddModal,
+  onResetData
 }) => {
   return (
-    <header className="app-header">
-      <div className="header-inner">
-        <div className="brand-section">
-          <div className="brand-logo-badge" title="TaskFlow Dashboard">
-            <CheckSquare size={22} strokeWidth={2.5} />
+    <header className="header">
+      <div className="header-container">
+        <div className="brand">
+          <div className="brand-icon">
+            <CheckSquare size={18} />
           </div>
-          <div className="brand-info">
-            <h1>TaskFlow <span style={{ fontSize: '0.75rem', fontWeight: 600, padding: '2px 8px', borderRadius: '999px', background: 'var(--brand-primary-light)', color: 'var(--brand-primary)' }}>Pro</span></h1>
-            <p>Practical Task Management Dashboard</p>
+          <div>
+            <h1 className="brand-title">Task Dashboard</h1>
+            <p className="brand-subtitle">ReactJS Technical Assessment</p>
           </div>
         </div>
 
         <div className="header-actions">
-          <button 
+          <button
             type="button"
-            className="btn-icon" 
+            className="btn-icon"
             onClick={onResetData}
-            title="Reset to sample data"
-            aria-label="Reset to default data"
+            title="Reset to default mock data"
           >
-            <RotateCcw size={18} />
+            <RotateCcw size={16} />
           </button>
 
-          <button 
+          <button
             type="button"
-            className="btn-icon" 
+            className="btn-icon"
             onClick={onToggleTheme}
-            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
-            aria-label="Toggle light or dark theme"
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
-          <button 
+          <button
             type="button"
             className="btn btn-primary"
             onClick={onOpenAddModal}
             id="add-task-btn"
           >
-            <Plus size={18} strokeWidth={2.5} />
+            <Plus size={16} />
             <span>Add Task</span>
           </button>
         </div>

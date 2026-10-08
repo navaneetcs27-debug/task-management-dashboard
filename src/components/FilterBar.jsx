@@ -1,13 +1,5 @@
 import React from 'react';
-import { 
-  Search, 
-  X, 
-  LayoutGrid, 
-  Kanban, 
-  Table, 
-  ArrowUpDown, 
-  SlidersHorizontal 
-} from 'lucide-react';
+import { Search, X, LayoutGrid, Kanban, Table } from 'lucide-react';
 
 export const FilterBar = ({
   searchQuery,
@@ -19,86 +11,74 @@ export const FilterBar = ({
   onPriorityChange,
   sortBy,
   onSortChange,
-  sortOrder,
-  onToggleSortOrder,
   viewMode,
   onViewModeChange,
   onResetFilters,
-  hasActiveFilters,
-  resultCount
+  hasActiveFilters
 }) => {
   return (
-    <div className="controls-card">
-      {/* Top Row: Search Input & View Switcher */}
-      <div className="controls-row-top">
-        <div className="search-input-wrapper">
-          <Search size={18} className="search-icon" />
+    <div className="controls-container">
+      <div className="search-row">
+        <div className="search-wrapper">
+          <Search size={16} className="search-icon" />
           <input
-            id="task-search-input"
             type="text"
             className="search-input"
-            placeholder="Search tasks by title or description..."
+            placeholder="Search tasks..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
           />
           {searchQuery && (
             <button
               type="button"
-              className="search-clear-btn"
+              className="search-clear"
               onClick={onClearSearch}
-              title="Clear search"
-              aria-label="Clear search input"
+              aria-label="Clear search"
             >
-              <X size={16} />
+              <X size={14} />
             </button>
           )}
         </div>
 
-        {/* View Mode Switcher */}
-        <div className="view-switcher-group" role="group" aria-label="View switch">
+        <div className="view-toggle">
           <button
             type="button"
-            className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+            className={viewMode === 'grid' ? 'active' : ''}
             onClick={() => onViewModeChange('grid')}
-            title="Grid View"
-            id="view-grid-btn"
+            title="Grid view"
           >
-            <LayoutGrid size={16} />
+            <LayoutGrid size={14} />
             <span>Cards</span>
           </button>
           <button
             type="button"
-            className={`view-btn ${viewMode === 'board' ? 'active' : ''}`}
+            className={viewMode === 'board' ? 'active' : ''}
             onClick={() => onViewModeChange('board')}
-            title="Kanban Board View"
-            id="view-board-btn"
+            title="Kanban board view"
           >
-            <Kanban size={16} />
+            <Kanban size={14} />
             <span>Board</span>
           </button>
           <button
             type="button"
-            className={`view-btn ${viewMode === 'table' ? 'active' : ''}`}
+            className={viewMode === 'table' ? 'active' : ''}
             onClick={() => onViewModeChange('table')}
-            title="Table View"
-            id="view-table-btn"
+            title="Table list view"
           >
-            <Table size={16} />
+            <Table size={14} />
             <span>Table</span>
           </button>
         </div>
       </div>
 
-      {/* Bottom Row: Status Filter, Priority Filter, Sort By & Reset */}
-      <div className="controls-filters-row">
+      <div className="filters-row">
         <div className="filter-group">
           <span className="filter-label">Status:</span>
           {['All', 'Pending', 'In Progress', 'Completed'].map((status) => (
             <button
               key={status}
               type="button"
-              id={`filter-status-${status.toLowerCase().replace(' ', '-')}`}
-              className={`filter-pill ${statusFilter === status ? 'active' : ''}`}
+              className={`pill-btn ${statusFilter === status ? 'active' : ''}`}
               onClick={() => onStatusChange(status)}
             >
               {status}
@@ -112,8 +92,7 @@ export const FilterBar = ({
             <button
               key={priority}
               type="button"
-              id={`filter-priority-${priority.toLowerCase()}`}
-              className={`filter-pill ${priorityFilter === priority ? 'active' : ''}`}
+              className={`pill-btn ${priorityFilter === priority ? 'active' : ''}`}
               onClick={() => onPriorityChange(priority)}
             >
               {priority}
@@ -121,39 +100,26 @@ export const FilterBar = ({
           ))}
         </div>
 
-        {/* Sort Controls */}
         <div className="filter-group" style={{ marginLeft: 'auto' }}>
-          <span className="filter-label">Sort:</span>
+          <span className="filter-label">Sort by:</span>
           <select
-            id="task-sort-select"
-            className="select-control"
+            className="select-input"
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value)}
           >
             <option value="dueDate">Due Date</option>
             <option value="priority">Priority</option>
             <option value="status">Status</option>
-            <option value="title">Title (A-Z)</option>
-            <option value="createdAt">Date Created</option>
+            <option value="title">Title</option>
           </select>
-
-          <button
-            type="button"
-            className="btn-icon btn-sm"
-            onClick={onToggleSortOrder}
-            title={`Sort ${sortOrder === 'asc' ? 'Ascending' : 'Descending'}`}
-            aria-label="Toggle sort order"
-          >
-            <ArrowUpDown size={15} />
-          </button>
 
           {hasActiveFilters && (
             <button
               type="button"
-              className="reset-filters-btn"
+              className="reset-btn"
               onClick={onResetFilters}
             >
-              Reset Filters
+              Reset
             </button>
           )}
         </div>

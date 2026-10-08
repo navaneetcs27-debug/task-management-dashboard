@@ -1,15 +1,14 @@
 import React from 'react';
 import { TaskCard } from './TaskCard';
 
-export const TaskGrid = ({ 
-  tasks, 
-  onEdit, 
-  onDelete, 
-  onStatusChange,
-  onQuickCycleStatus 
+export const TaskGrid = ({
+  tasks,
+  onEdit,
+  onDelete,
+  onStatusChange
 }) => {
   return (
-    <div className="task-grid" id="task-grid-container">
+    <div className="tasks-grid">
       {tasks.map((task) => (
         <TaskCard
           key={task.id}
@@ -17,7 +16,6 @@ export const TaskGrid = ({
           onEdit={onEdit}
           onDelete={onDelete}
           onStatusChange={onStatusChange}
-          onQuickCycleStatus={onQuickCycleStatus}
         />
       ))}
     </div>

@@ -1,65 +1,50 @@
-export const INITIAL_TASKS = [
+export const initialTasks = [
   {
     id: 1,
     title: "Build Login Page",
-    description: "Create a responsive login page using ReactJS with form validation and password reveal toggle.",
+    description: "Create responsive login page using ReactJS.",
     status: "In Progress",
     priority: "High",
-    dueDate: "2026-10-15",
-    createdAt: "2026-10-01"
+    dueDate: "2026-10-15"
   },
   {
     id: 2,
-    title: "Implement Task Search & Multi-Filter",
-    description: "Enable real-time search across task titles and descriptions, combining status and priority filters.",
+    title: "Setup user authentication",
+    description: "Implement JWT validation and protected routes for dashboard access.",
     status: "Completed",
     priority: "High",
-    dueDate: "2026-10-10",
-    createdAt: "2026-10-02"
+    dueDate: "2026-10-10"
   },
   {
     id: 3,
-    title: "Design System & Dark Mode",
-    description: "Configure CSS design tokens, smooth color scheme switches, and glassmorphism card elevation.",
+    title: "Add search and filter controls",
+    description: "Enable real-time task search and multi-filtering by status and priority.",
     status: "Completed",
     priority: "Medium",
-    dueDate: "2026-10-12",
-    createdAt: "2026-10-03"
+    dueDate: "2026-10-12"
   },
   {
     id: 4,
-    title: "Database Schema Migration",
-    description: "Draft PostgreSQL migration scripts for task metadata, audit logs, and assigned team members.",
-    status: "Pending",
-    priority: "Medium",
-    dueDate: "2026-10-25",
-    createdAt: "2026-10-04"
+    title: "Integrate notification toasts",
+    description: "Show feedback toasts on create, update, and delete actions.",
+    status: "In Progress",
+    priority: "Low",
+    dueDate: "2026-10-20"
   },
   {
     id: 5,
-    title: "Stripe Billing Integration",
-    description: "Integrate Stripe Customer Portal webhooks for subscription upgrades and automatic invoice generation.",
+    title: "Write component unit tests",
+    description: "Add tests for task modal validation and delete confirmation dialog.",
     status: "Pending",
-    priority: "High",
-    dueDate: "2026-10-30",
-    createdAt: "2026-10-05"
+    priority: "Medium",
+    dueDate: "2026-10-25"
   },
   {
     id: 6,
-    title: "Write End-to-End Cypress Tests",
-    description: "Cover user creation flows, task editing, deletion confirmation modal, and status updates.",
-    status: "In Progress",
-    priority: "Low",
-    dueDate: "2026-11-05",
-    createdAt: "2026-10-06"
-  },
-  {
-    id: 7,
-    title: "Optimize Lighthouse Performance",
-    description: "Audit bundle size, implement lazy loading for heavy chart components, and achieve 95+ score.",
+    title: "Database schema migration",
+    description: "Prepare PostgreSQL schema migration script for task metadata and tags.",
     status: "Pending",
-    priority: "Low",
-    dueDate: "2026-11-15",
-    createdAt: "2026-10-07"
+    priority: "High",
+    dueDate: "2026-10-30"
   }
 ];

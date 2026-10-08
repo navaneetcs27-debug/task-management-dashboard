@@ -1,12 +1,14 @@
 export const formatDate = (dateString) => {
-  if (!dateString) return 'No due date';
+  if (!dateString) return '-';
   try {
-    const date = new Date(dateString + 'T00:00:00');
-    return new Intl.DateTimeFormat('en-US', {
+    const [year, month, day] = dateString.split('-');
+    if (!year || !month || !day) return dateString;
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
       year: 'numeric'
-    }).format(date);
+    });
   } catch {
     return dateString;
   }
@@ -17,27 +19,10 @@ export const isOverdue = (dateString, status) => {
   try {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const due = new Date(dateString + 'T00:00:00');
+    const [year, month, day] = dateString.split('-');
+    const due = new Date(year, month - 1, day);
     return due < today;
   } catch {
     return false;
-  }
-};
-
-export const getDaysRemaining = (dateString) => {
-  if (!dateString) return null;
-  try {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const due = new Date(dateString + 'T00:00:00');
-    const diffTime = due - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays < 0) return `${Math.abs(diffDays)}d overdue`;
-    if (diffDays === 0) return 'Due today';
-    if (diffDays === 1) return 'Due tomorrow';
-    return `${diffDays} days left`;
-  } catch {
-    return null;
   }
 };
